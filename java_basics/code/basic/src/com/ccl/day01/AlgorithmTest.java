@@ -11,6 +11,7 @@ public class AlgorithmTest {
 		//isPrimeNumber();
 		//printScore();
 		accumulation();
+		yangHuiTest();
 	}
 
 	private static void multiplicationTable() {
