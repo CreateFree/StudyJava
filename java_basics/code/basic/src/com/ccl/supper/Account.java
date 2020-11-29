@@ -86,8 +86,9 @@ public class Account {
 			System.out.println("取款失败！");
 			return;
 		}
-		if((balance-amount)>0) {
+		if((balance-amount)>=0) {
 			balance -= amount;
+			System.out.println("取款成功！当前余额为："+balance);
 		}else {
 			System.out.println("余额不足，取款失败！");
 		}
@@ -104,7 +105,7 @@ public class Account {
 			return;
 		}
 		balance+=amount;
-		System.out.println("存款成功！");
+		System.out.println("存款成功！当前余额为："+ balance);
 	}
 	
 }
