@@ -8,6 +8,8 @@
 */
 package junit_test;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 
  * @aothor chencl
@@ -15,4 +17,9 @@ package junit_test;
  */
 public class JUnitTest {
 
+	@Test
+	public void testFun() {
+		int i = 10;
+		System.out.println(i);
+	}
 }
