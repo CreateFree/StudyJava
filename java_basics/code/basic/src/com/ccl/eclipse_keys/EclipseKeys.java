@@ -50,6 +50,8 @@ package com.ccl.eclipse_keys;
  * 37.最大化当前的View：ctrl + m
  * 38.直接定位到当前行的首位：home
  * 39.直接定位到当前行的末位：end
+ * 
+ * 文档注释：alt+shift+j
  */
 
 public class EclipseKeys {
