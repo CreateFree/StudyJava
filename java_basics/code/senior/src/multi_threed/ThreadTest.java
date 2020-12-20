@@ -1,7 +1,7 @@
-package com.ccl.exer;
+package multi_threed;
 
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * @Auther: ccl

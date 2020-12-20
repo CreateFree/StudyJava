@@ -1,4 +1,4 @@
-package com.ccl.string;
+package common_class;
 
 import org.junit.jupiter.api.Test;
 

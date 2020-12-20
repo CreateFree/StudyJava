@@ -21,6 +21,21 @@
   
 2.Map 接口  键值对 key-value 
     HashMap 、LinkedMap 、TreeMap 、 HashTable
+    
+3.每个接口的理解及源码分析
+
+3.1 Collection
+
+3.2 List
+
+3.3 ArrayList\LinkedList\Vector
+
+3.4 HashSet\LinkedSet\TreeSet
+
+3.5 HashMap\LinkedMap\TreeMap\HashTable
+
+
+
  
 # Collection 接口方法
 1、添加  
@@ -47,5 +62,8 @@
 10、获取集合对象的哈希值  
  hashCode()  
 11、遍历  
- iterator()：返回迭代器对象，用于集合遍历  
+ iterator()：返回迭代器对象，用于集合遍历
+ 
+ 
+#   
 

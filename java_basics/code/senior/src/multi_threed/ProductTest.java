@@ -1,4 +1,4 @@
-package com.ccl.exer;
+package multi_threed;
 
 /**
  * 线程通信 经典例题：生产者/消费者问题

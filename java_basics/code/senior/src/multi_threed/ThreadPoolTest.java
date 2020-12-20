@@ -1,4 +1,4 @@
-package com.ccl.exer;
+package multi_threed;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
