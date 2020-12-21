@@ -1,6 +1,7 @@
 package common_class;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  *
