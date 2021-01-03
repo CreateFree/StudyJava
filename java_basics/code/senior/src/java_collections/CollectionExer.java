@@ -2,9 +2,77 @@ package java_collections;
 
 import org.junit.Test;
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.*;
+
+
+
+
+class Student implements Comparable{
+    private String name;
+    private double score;
+    private int id;
+
+    public Student(String name, double score, int id) {
+        this.name = name;
+        this.score = score;
+        this.id = id;
+    }
+
+    public Student() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", score=" + score +
+                ", id=" + id +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof Student){
+            Student st = (Student) o;
+            Double ds = this.score;
+            Double ods =st.score;
+            return -ds.compareTo(ods);
+        }
+        throw new RuntimeException("类型不匹配！");
+    }
+}
+
+
+
+
+
+
+
+
 
 /**
  * @Auther: ccl
@@ -12,6 +80,98 @@ import java.util.TreeSet;
  * @Description:
  */
 public class CollectionExer {
+
+    /**
+     * 3. 姓氏统计： 一个文件存储名字，其格式如下：
+     *  王 二
+     *  李 四
+     *  张 三
+     *  刘保罗
+     *  ...
+     *  现统计这份文件中所有姓氏出现的次数。
+     *  解决方法：使用Map，将姓氏作为key，次数作为value。利用Map的put时，改变Value不改变key的特性。还需要以IO流读取文件。
+     */
+    
+    /**
+     * 1.2请把学生名与考试分数录入到集合中，并按分数显示前三名
+     * 成绩学员的名字。
+     * TreeSet(Student(name,score,id));
+     */
+    @Test
+    public void test4(){
+        Student st1 = new Student("AB",89,1001);
+        Student st2 = new Student("das",83,1003);
+        Student st3 = new Student("tea",50,1002);
+        Student st4 = new Student("rea",80,1004);
+
+        // 方式二：
+        Comparator com = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                if(o1 instanceof Student && o2 instanceof Student){
+                    Student s1 = (Student)o1;
+                    Student s2 = (Student)o2;
+                    return -Double.compare(s1.getScore(),s2.getScore());
+                }
+                return 0;
+            }
+        };
+        TreeSet treeSet = new TreeSet(com);
+        // 方式一：
+        // TreeSet treeSet = new TreeSet();
+        treeSet.add(st1);
+        treeSet.add(st2);
+        treeSet.add(st3);
+        treeSet.add(st4);
+
+        Iterator iterator = treeSet.iterator();
+        int i = 0;
+        while(i < 3){
+            System.out.println(iterator.next());
+            i++;
+        }
+
+
+    }
+    /**
+     * 练习
+     * 1.1.请从键盘随机输入10个整数保存到List中，并按倒序、从大
+     * 到小的顺序显示出来
+     */
+    @Test
+    public void test3(){
+        ArrayList list = new ArrayList();
+        Scanner scanner = new Scanner(System.in);
+        // for (int i = 0; i < 10; i++) {
+        //     System.out.println("请输入第"+i+"个整数：");
+        //     int num = scanner.nextInt();
+        //     System.out.println(num);
+        //     list.add(num);
+        // }
+        list.add(1);
+        list.add(12);
+        list.add(3);
+        list.add(4);
+        list.add(21);
+        list.add(31);
+        list.add(22);
+        list.add(13);
+        // 从大到小排序
+        Collections.sort(list, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+
+                if(o1 instanceof  Integer && o2 instanceof Integer){
+                    Integer i1 = (Integer)o1;
+                    Integer i2 = (Integer)o2;
+                    return -i1.compareTo(i2);
+                }else {
+                    throw new RuntimeException("匹配的类型不一样！");
+                }
+            }
+        });
+        System.out.println(list.toString());
+    }
     /*
      创建该类的 5 个对象，并把这些对象放入 TreeSet 集合中（下一章：TreeSet 需使用泛型来定义）
      分别按以下两种方式对集合中的元素进行排序，并遍历输出：
