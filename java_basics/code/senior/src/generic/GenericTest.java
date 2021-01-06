@@ -74,6 +74,17 @@ public class GenericTest {
             Integer value = entry.getValue();
             System.out.println(key + " ---- " +value);
         }
+    }
+
+    // 自定义泛型
+    class Person<T>{
+
+    }
+    class Student extends Person<Student>{
+
+    }
+    @Test
+    public void test4(){
 
     }
 }
