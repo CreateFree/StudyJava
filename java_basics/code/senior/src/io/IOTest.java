@@ -96,6 +96,7 @@ public class IOTest {
     public void test3() {
         FileReader fileReader = null;
         FileWriter fileWriter = null;
+
         try {
             File readFile = new File("src/io/test2.txt");
             File writeFile = new File("src/io/test3.txt");
@@ -112,20 +113,28 @@ public class IOTest {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        try {
-            if (fileReader != null)
-                fileReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (fileWriter != null)
-                fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } finally {
+            try {
+                if (fileReader != null)
+                    fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (fileWriter != null)
+                    fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
+
+
+    //
+    @Test
+    public void test4(){
+
+    }
+
 }
