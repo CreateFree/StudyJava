@@ -18,9 +18,14 @@ public class ObjectStream {
     public void test1(){
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/io/osTest.bat"));
+            oos = new ObjectOutputStream(new FileOutputStream("osTest.bat"));
             oos.writeObject(new String("中文了不会斯大林附件"));
             oos.flush(); // 刷新一次 就写出
+
+            // 自定义对象序列化
+            Person ad = new Person("ad", 18);
+            oos.writeObject(ad);
+            oos.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -39,10 +44,15 @@ public class ObjectStream {
     public  void test2(){
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream("src/io/osTest.bat"));
+            ois = new ObjectInputStream(new FileInputStream("osTest.bat"));
+            // 注意读取编码以及顺序
             Object obj = ois.readObject();
             String str = (String) obj;
             System.out.println(str);
+            //
+            Object obj1 = ois.readObject();
+            Person p = (Person) obj1;
+            System.out.println(p);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

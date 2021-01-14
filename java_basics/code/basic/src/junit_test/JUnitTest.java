@@ -8,7 +8,8 @@
 */
 package junit_test;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * 
